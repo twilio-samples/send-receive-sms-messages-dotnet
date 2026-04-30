@@ -57,13 +57,13 @@ Before you can receive an SMS, you need to complete a few further steps.
    - To receive an SMS **without** responding to it, append "no-response" to the URL
    - To receive an SMS and respond to it, append "with-response" to the URL
 1. Click **Save configuration**.
-1. Start the Rust web app
+1. Start the Minimal API web app
 
    ```bash
    dotnet run
    ```
 
-1. With both the Rust app and ngrok running, send an SMS to your Twilio phone number, containing whatever message you like.
+1. With both the web app and ngrok running, send an SMS to your Twilio phone number, containing whatever message you like.
    If you want a response, try sending "never gonna" as the message.
 
 [active_numbers]: https://console.twilio.com/us1/develop/phone-numbers/manage/incoming
