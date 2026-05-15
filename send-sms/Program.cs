@@ -3,7 +3,7 @@ using Twilio;
 using Twilio.Rest.Api.V2010.Account;
 using Twilio.Types;
 
-class SendSMS
+sealed class SendSMS
 {
     static void Main(string[] args)
     {

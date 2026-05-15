@@ -64,22 +64,15 @@ app.MapPost(
         "/receive/with-response",
         ([FromForm(Name = "Body")] string body = "") =>
         {
-            string defaultOption =
-                "I just wanna tell you how I'm feeling - Gotta make you understand";
-            string[] options =
-            {
-                "give you up",
-                "let you down",
-                "make you cry",
-                "run around and desert you",
-                "say goodbye",
-                "tell a lie, and hurt you",
-            };
-            int index = new Random().Next(0, options.Length - 1);
+            int index = new Random().Next(0, AppFields.MessageBodyOptions.Length - 1);
             var response = new MessagingResponse();
             var message = new Message();
 
-            message.Body(body.ToLower() == "never gonna" ? options[index] : defaultOption);
+            message.Body(
+                string.Equals(body, "never gonna", StringComparison.OrdinalIgnoreCase)
+                    ? AppFields.MessageBodyOptions[index]
+                    : AppFields.DefaultOption
+            );
             response.Append(message);
 
             return Results.Text(response.ToString(), contentType: "application/xml");
@@ -90,3 +83,18 @@ app.MapPost(
     .DisableAntiforgery();
 
 app.Run();
+
+internal static class AppFields
+{
+    public const string DefaultOption =
+        "I just wanna tell you how I'm feeling - Gotta make you understand";
+    public static readonly string[] MessageBodyOptions =
+    {
+        "give you up",
+        "let you down",
+        "make you cry",
+        "run around and desert you",
+        "say goodbye",
+        "tell a lie, and hurt you",
+    };
+}
