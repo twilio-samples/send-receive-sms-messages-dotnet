@@ -1,10 +1,9 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>send_sms</RootNamespace>
+    <RootNamespace>send_receive_sms_messages_dotnet</RootNamespace>
     <TargetFramework>net10.0</TargetFramework>
     <!-- Configure code analysis rules -->
     <AnalysisLevel>latest</AnalysisLevel>
